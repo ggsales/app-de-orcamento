@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    container_name: propostas-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: propostas
+      POSTGRES_PASSWORD: propostas_dev
+      POSTGRES_DB: propostas
+    ports:
+      - "5432:5432"
+    volumes:
+      - propostas-pgdata:/var/lib/postgresql/data
+
+volumes:
+  propostas-pgdata:
